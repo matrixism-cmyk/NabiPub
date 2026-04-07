@@ -17,7 +17,20 @@ Windows용 SFTP/FTP 가상 드라이브. 원격 서버를 로컬 드라이브처
 - 디스크 LRU 캐시, 스마트 프리페치
 - Windows 탐색기 완벽 통합
 
-**[다운로드](https://github.com/matrixism-cmyk/NabiPub/releases)**
+**[다운로드](https://github.com/matrixism-cmyk/NabiPub/releases/tag/v0.1.1)**
+
+---
+
+### 나비 인증서 매니저 (Nabi Certificate Manager)
+
+공동인증서(NPKI) 통합 관리 프로그램. 은행 프로그램 없이 인증서를 쉽게 관리합니다.
+
+- 로컬/USB/Windows 인증서 저장소 자동 스캔
+- P12(PFX) 내보내기 · 가져오기
+- KISA SEED/ARIA 암호 알고리즘 직접 복호화
+- 설치 불필요, 단일 실행 파일
+
+**[다운로드](https://github.com/matrixism-cmyk/NabiPub/releases/tag/v0.0.1-certman)**
 
 ---
 
@@ -31,7 +44,7 @@ Windows용 SFTP/FTP 가상 드라이브. 원격 서버를 로컬 드라이브처
 - 저울 4모드 지원 (Auto/Hand/Contin/Ctrl)
 - 시스템 트레이 상주, 자동 연결
 
-**[다운로드](https://github.com/matrixism-cmyk/NabiPub/releases)**
+**[다운로드](https://github.com/matrixism-cmyk/NabiPub/releases/tag/v0.0.1-loadcell)**
 
 ---
 
@@ -55,6 +68,7 @@ Windows용 SFTP/FTP 가상 드라이브. 원격 서버를 로컬 드라이브처
 | 파일 | 제품 |
 |------|------|
 | `NabiDrive_Setup_vX.X.X.exe` | 나비 드라이브 인스톨러 |
+| `NabiCertMan_vX.X.X.exe` | 나비 인증서 매니저 (단일 실행 파일) |
 | `NabiLoadCell_vX.X.X.exe` | 나비 로드셀 모니터 (단일 실행 파일) |
 
 ---
