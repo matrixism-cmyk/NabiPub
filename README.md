@@ -1,82 +1,84 @@
-# 나비 (Nabi) — 한없이 무해한 소프트웨어
+# NabiDrive
 
-나비 제품군의 공식 배포 저장소입니다.
+**Your remote server, as a local drive.**
 
-> 광고 없음 · 개인정보 수집 없음 · 강제 업데이트 없음 · 완전 무료
+Mount SFTP/FTP servers as Windows drives. Copy, edit, delete files — as naturally as on your own PC.
 
----
+[![GitHub Release](https://img.shields.io/github/v/release/matrixism-cmyk/NabiPub?label=Download&color=0a0)](https://github.com/matrixism-cmyk/NabiPub/releases/latest)
 
-## 제품 목록
-
-### 나비 드라이브 (NabiDrive)
-
-Windows용 SFTP/FTP 가상 드라이브. 원격 서버를 로컬 드라이브처럼 사용합니다.
-
-- Dokan 가상 드라이브 마운트
-- SFTP / FTP 보안 연결
-- 디스크 LRU 캐시, 스마트 프리페치
-- Windows 탐색기 완벽 통합
-
-**[다운로드](https://github.com/matrixism-cmyk/NabiPub/releases/tag/v0.1.1)**
+> 🇰🇷 한국어 | 🇺🇸 English — Auto-detected based on your Windows language
 
 ---
 
-### 나비 인증서 매니저 (Nabi Certificate Manager)
+## Features
 
-공동인증서(NPKI) 통합 관리 프로그램. 은행 프로그램 없이 인증서를 쉽게 관리합니다.
+| Feature | Description |
+|---------|-------------|
+| **SFTP/FTP Drive Mount** | SSH-based secure connection with host key verification |
+| **Dokan + ProjFS** | Dokan virtual drive (priority) with ProjFS fallback |
+| **Directory Browser** | Tree view to browse and select remote paths |
+| **Disk Cache (1GB LRU)** | Cached files for faster repeated access |
+| **Smart Prefetch** | Predicts and pre-downloads frequently used files |
+| **SFTP 8-Channel Pool** | Parallel transfers for better performance |
+| **Auto Reconnect** | Up to 5 retries with exponential backoff |
+| **Auto Update** | In-app update check, download, and install |
+| **Multi-Language** | Korean, English (extensible) |
+| **Dark/Light Theme** | Follows Windows system theme |
+| **Tray Icon** | Minimizes to tray, balloon notifications |
+| **Startup Launch** | Optional Windows startup registration |
+| **DPAPI Encryption** | Passwords stored securely via Windows DPAPI |
 
-- 로컬/USB/Windows 인증서 저장소 자동 스캔
-- P12(PFX) 내보내기 · 가져오기
-- KISA SEED/ARIA 암호 알고리즘 직접 복호화
-- 설치 불필요, 단일 실행 파일
+## Screenshots
 
-**[다운로드](https://github.com/matrixism-cmyk/NabiPub/releases/tag/v0.0.1-certman)**
+> Coming soon — clean screenshots will be added
+
+<!-- 
+![Main Screen](screenshots/main.png)
+![Connection Form](screenshots/form.png)
+![Directory Browser](screenshots/browser.png)
+-->
+
+## Installation
+
+1. Download **[nabidrive_setup_vXXXX.exe](https://github.com/matrixism-cmyk/NabiPub/releases/latest)** from Releases
+2. Run the installer (Dokan driver is installed automatically)
+3. Launch NabiDrive and add your first connection
+
+### System Requirements
+- Windows 10/11 (64-bit)
+- Internet connection
+
+## Comparison
+
+| | NabiDrive | NetDrive | SFTP Net Drive | Mountain Duck | Rclone |
+|---|:---:|:---:|:---:|:---:|:---:|
+| **Price** | **Free** (2) | $56/yr | $40 | $39 | Free |
+| **SFTP** | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **FTP** | ✅ | ✅ | ❌ | ✅ | ✅ |
+| **GUI** | ✅ | ✅ | ✅ | ✅ | ❌ (CLI) |
+| **Korean** | ✅ | ✅ | ❌ | ❌ | ❌ |
+| **Disk Cache** | ✅ | ✅ | ❌ | ✅ | ✅ |
+| **Auto Update** | ✅ | ✅ | ✅ | ✅ | ❌ |
+| **Subscription** | **No** | Annual | No | No | No |
+
+## Pricing
+
+- **Free**: Up to 2 drive connections
+- **Pro License**: Unlimited drives, priority support
+
+## Tech Stack
+
+- **Language**: Rust
+- **GUI**: egui (eframe 0.34)
+- **FS Driver**: Dokan 2.x / ProjFS
+- **SSH**: russh + russh-sftp
+- **FTP**: suppaftp
+
+## Links
+
+- 🌐 Website: [https://nabisori.kr](https://nabisori.kr)
+- 📥 Download: [Latest Release](https://github.com/matrixism-cmyk/NabiPub/releases/latest)
 
 ---
 
-### 나비 로드셀 모니터 (Nabi LoadCell Monitor)
-
-전자저울의 측정값을 실시간으로 PC + 태블릿에서 모니터링하는 프로그램입니다.
-
-- RS232 시리얼 저울 연결 (CH340 USB-Serial)
-- 실시간 GUI 그래프 (60fps)
-- MQTT로 서버 전송 → 태블릿 브라우저에서 실시간 확인
-- 저울 4모드 지원 (Auto/Hand/Contin/Ctrl)
-- 시스템 트레이 상주, 자동 연결
-
-**[다운로드](https://github.com/matrixism-cmyk/NabiPub/releases/tag/v0.0.1-loadcell)**
-
----
-
-## 시스템 요구사항
-
-- Windows 10/11 (64비트)
-
-### 나비 드라이브 추가 요구사항
-- Dokan 드라이버 (인스톨러에서 자동 설치)
-
-### 나비 로드셀 모니터 추가 요구사항
-- USB-RS232 어댑터 (CH340)
-- MQTT 브로커 (태블릿 모니터링 시)
-
----
-
-## 설치
-
-[Releases](https://github.com/matrixism-cmyk/NabiPub/releases) 페이지에서 최신 버전을 다운로드하세요.
-
-| 파일 | 제품 |
-|------|------|
-| `NabiDrive_Setup_vX.X.X.exe` | 나비 드라이브 인스톨러 |
-| `NabiCertMan_vX.X.X.exe` | 나비 인증서 매니저 (단일 실행 파일) |
-| `NabiLoadCell_vX.X.X.exe` | 나비 로드셀 모니터 (단일 실행 파일) |
-
----
-
-## 웹사이트
-
-[https://nabisori.kr](https://nabisori.kr)
-
----
-
-Copyright (C) 2026 NabiSori. All rights reserved.
+**Copyright © 2026 NabiSori. All rights reserved.**
