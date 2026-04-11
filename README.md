@@ -139,3 +139,22 @@
 **Copyright © 2026 NabiSori. All rights reserved.**
 
 </div>
+
+---
+
+## Open Source Licenses
+
+### Dokan (dokany) — MIT License
+
+```
+Copyright (C) 2015-2020 Adrien J., Maxime C.
+Copyright (C) 2007-2011 Hiroki Asakawa
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software...
+```
+
+Full license: [THIRD_PARTY_LICENSES.txt](https://github.com/dokan-dev/dokany/blob/master/license.mit.txt)
