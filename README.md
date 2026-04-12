@@ -6,6 +6,7 @@
 **Your remote server, as a local drive.**
 
 [![Buy Pro](https://img.shields.io/badge/Pro-$19.99-F59E0B?style=for-the-badge)](https://nabisori.gumroad.com/l/ddpmb)
+[![Buy Pro](https://img.shields.io/badge/Buy_Pro-$19.99-F59E0B?style=for-the-badge&logo=gumroad&logoColor=white)](https://nabisori.gumroad.com/l/ddpmb)
 [![GitHub Release](https://img.shields.io/github/v/release/matrixism-cmyk/NabiPub?label=Download&style=for-the-badge&color=0a0)](https://github.com/matrixism-cmyk/NabiPub/releases/latest)
 [![Windows](https://img.shields.io/badge/Windows_10%2F11-0078D6?style=for-the-badge&logo=windows&logoColor=white)](https://github.com/matrixism-cmyk/NabiPub/releases/latest)
 [![Rust](https://img.shields.io/badge/Built_with_Rust-000000?style=for-the-badge&logo=rust&logoColor=white)](https://www.rust-lang.org/)
