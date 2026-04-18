@@ -5,13 +5,13 @@
 **원격 서버를 내 컴퓨터 드라이브처럼**
 **Your remote server, as a local drive.**
 
-[![Buy Pro](https://img.shields.io/badge/Pro-$19.99-F59E0B?style=for-the-badge)](https://nabisori.gumroad.com/l/ddpmb)
 [![Buy Pro](https://img.shields.io/badge/Buy_Pro-$19.99-F59E0B?style=for-the-badge&logo=gumroad&logoColor=white)](https://nabisori.gumroad.com/l/ddpmb)
 [![GitHub Release](https://img.shields.io/github/v/release/matrixism-cmyk/NabiPub?label=Download&style=for-the-badge&color=0a0)](https://github.com/matrixism-cmyk/NabiPub/releases/latest)
 [![Windows](https://img.shields.io/badge/Windows_10%2F11-0078D6?style=for-the-badge&logo=windows&logoColor=white)](https://github.com/matrixism-cmyk/NabiPub/releases/latest)
 [![Rust](https://img.shields.io/badge/Built_with_Rust-000000?style=for-the-badge&logo=rust&logoColor=white)](https://www.rust-lang.org/)
 
 🇰🇷 한국어 | 🇺🇸 English — *Windows 시스템 언어에 따라 자동 전환*
+
 
 </div>
 
@@ -27,40 +27,53 @@
 > NabiDrive mounts your remote server as a local Windows drive.
 > Open, edit, save — directly from Explorer!
 
-### vs sshfs-win + sshfs-win-manager
+---
+
+## Supported Protocols | 지원 프로토콜
+
+| Protocol | Description |
+|:---------|:------------|
+| **SFTP** | SSH 기반 보안 연결, 8채널 멀티플렉싱 |
+| **FTP** | 레거시 FTP 서버 호환 |
+| **WebDAV** | HTTP/HTTPS 기반 (Synology, Nextcloud, ownCloud 등) |
+| **S3** | AWS S3 호환 (MinIO, Wasabi, Backblaze B2 등) |
+
+---
+
+## vs sshfs-win + sshfs-win-manager
 
 | | NabiDrive | sshfs-win-manager | sshfs-win |
 |:---|:---:|:---:|:---:|
 | **GUI** | ✅ Built-in | ✅ Separate app | ❌ CLI only |
-| **FTP Support** | ✅ | ❌ | ❌ |
-| **Disk Cache** | ✅ 1GB LRU | ❌ | ❌ |
+| **SFTP / FTP / WebDAV / S3** | ✅ / ✅ / ✅ / ✅ | ❌ / ❌ / ❌ / ❌ | ❌ / ❌ / ❌ / ❌ |
+| **Disk Cache** | ✅ 1~10GB LRU | ❌ | ❌ |
 | **Smart Prefetch** | ✅ | ❌ | ❌ |
 | **8-Channel SFTP** | ✅ | ❌ | ❌ |
 | **Auto Reconnect** | ✅ 5 retries | ❌ | ❌ |
 | **Auto Update** | ✅ In-app | ❌ | ❌ |
 | **Custom Volume Name** | ✅ | ❌ | ❌ |
+| **Explorer Integration** | ✅ Upload / Permissions | ❌ | ❌ |
 | **Multi-Language** | ✅ KR/EN | ❌ | ❌ |
 | **Dark/Light Theme** | ✅ Auto | ❌ | ❌ |
 | **Driver** | Dokan + ProjFS | WinFsp | WinFsp |
 | **Price** | **Free** (2 drives) | Free | Free |
 | **Language** | Rust | Vue/Electron | C |
 
-### vs Commercial Products | 상용 제품과 비교
+## vs Commercial Products | 상용 제품과 비교
 
 | | NabiDrive | NetDrive | Mountain Duck | SFTP Net Drive |
 |:---|:---:|:---:|:---:|:---:|
 | **가격 Price** | **무료 Free** | $56/yr | $39 | $40 |
 | **구독 Subscription** | ❌ No | ✅ Annual | ❌ | ❌ |
 | **SFTP** | ✅ | ✅ | ✅ | ✅ |
-| **FTP** | ✅ | ✅ | ✅ | ❌ |
+| **FTP / WebDAV / S3** | ✅ / ✅ / ✅ | ✅ / ✅ / ✅ | ✅ / ✅ / ✅ | ❌ / ❌ / ❌ |
 | **한국어 Korean** | ✅ | ✅ | ❌ | ❌ |
-| **디스크 캐시 Cache** | ✅ | ✅ | ✅ | ❌ |
+| **디스크 캐시 Cache** | ✅ 1~10GB | ✅ | ✅ | ❌ |
 | **자동 업데이트 Update** | ✅ | ✅ | ✅ | ✅ |
 | **메모리 Memory** | ~20MB | ~80MB | ~100MB | ~30MB |
 | **Cloud Storage** | ❌ | ✅ | ✅ | ❌ |
 
-> 💡 NabiDrive는 SFTP/FTP **서버 전용**입니다. Google Drive, S3 등 클라우드가 필요하면 NetDrive, Mountain Duck을 추천합니다.
-> 💡 NabiDrive is for SFTP/FTP **servers only**. For cloud storage (Google Drive, S3), we recommend NetDrive or Mountain Duck.
+> 💡 NabiDrive는 SFTP/FTP/WebDAV/S3 **서버 전용**입니다. Google Drive 등 클라우드가 필요하면 NetDrive, Mountain Duck을 추천합니다.
 
 ---
 
@@ -68,16 +81,21 @@
 
 | Feature | 기능 | Description |
 |:--------|:-----|:------------|
-| 🔒 SFTP Drive | SFTP 드라이브 | SSH 기반 보안 연결, 호스트 키 자동 검증 |
+| 🔒 SFTP Drive | SFTP 드라이브 | SSH 보안 연결, 호스트 키 자동 검증 |
 | 📂 FTP Drive | FTP 드라이브 | 레거시 FTP 서버 호환 |
+| 🌐 WebDAV Drive | WebDAV 드라이브 | Synology, Nextcloud, ownCloud 등 |
+| ☁️ S3 Drive | S3 드라이브 | AWS S3, MinIO, Wasabi, B2 등 |
 | 🌳 Directory Browser | 디렉토리 브라우저 | 트리뷰로 원격 폴더 탐색 후 경로 선택 |
-| 💾 Disk Cache | 디스크 캐시 | 1GB LRU 캐시로 반복 접근 속도 향상 |
+| 💾 Disk Cache | 디스크 캐시 | 1~10GB LRU 캐시, 썸네일 캐시 히트율 99%+ |
 | ⚡ 8-Channel SFTP | 8채널 SFTP | 단일 SSH 연결에서 8개 채널 병렬 전송 |
 | 🔄 Auto Reconnect | 자동 재연결 | 네트워크 끊김 시 최대 5회 자동 복구 |
+| 📤 Upload Here | 여기로 업로드 | 우클릭 → 파일 선택 → 원격 폴더에 바로 업로드 |
+| 🔑 Permissions | 파일 권한 | 우클릭으로 chmod/chown 변경 (SFTP) |
 | 📦 Auto Update | 자동 업데이트 | 앱 내에서 새 버전 감지 → 다운로드 → 설치 |
+| 💬 Error Guide | 에러 가이드 | 연결 실패 시 원인별 친절한 한국어 안내 |
 | 🌍 Multi-Language | 다국어 | 한국어, English (시스템 언어 자동 감지) |
 | 🌗 Theme | 테마 | Windows 다크/라이트 테마 자동 감지 |
-| 📌 Tray Icon | 트레이 아이콘 | 최소화 시 트레이 상주, 풍선 알림 클릭 → 드라이브 열기 |
+| 📌 Tray Icon | 트레이 아이콘 | 최소화 시 트레이 상주, 풍선 알림 |
 | 🚀 Startup | 시작 프로그램 | Windows 부팅 시 자동 실행 |
 | 🔐 DPAPI | 비밀번호 암호화 | Windows 자격 증명 보호로 안전 저장 |
 | 🎯 Drive Mode | 드라이브 모드 | Auto / Dokan / ProjFS 프로필별 선택 |
